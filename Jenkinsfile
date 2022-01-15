@@ -22,7 +22,7 @@ pipeline {
                 script {
                     readProperties(file: 'Makefile.env').each { key, value -> env[key] = value }
                 }
-                sh '$(aws ecr get-login --no-include-email --registry-ids $AWS_ACCOUNT_NUMBER)'
+                sh '$(aws ecr get-login --no-include-email'
                 script {
                     def PUSH_RESULT = sh (
                     script: "make push-image",
